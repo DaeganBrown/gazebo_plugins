@@ -8,5 +8,5 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 # add_library(hello_world SHARED hello_world.cc)
 # target_link_libraries(hello_world ${GAZEBO_LIBRARIES})
 
-add_library(model_push SHARED model_push.cc)
-target_link_libraries(model_push ${GAZEBO_LIBRARIES})
+add_library(velocity_control SHARED velocity_control.cc)
+target_link_libraries(velocity_control ${GAZEBO_LIBRARIES})
