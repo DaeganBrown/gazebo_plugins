@@ -23,7 +23,7 @@ namespace gazebo
     public: void OnUpdate()
     {
       // local velocity
-      ignition::math::Vector3d = local(51, 0, 0);
+      ignition::math::Vector3d = localVel(51, 0, 0);
       //find global transform
       ignition::math::Vector3d worldVel = orientation.RotateVector(localVel);
 
