@@ -6,7 +6,7 @@
 
 namespace gazebo
 {
-  class ModelPush : public ModelPlugin
+  class VelocityControl : public ModelPlugin
   {
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/)
     {
@@ -16,14 +16,14 @@ namespace gazebo
       // Listen to the update event. This event is broadcast every
       // simulation iteration.
       this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-          std::bind(&ModelPush::OnUpdate, this));
+          std::bind(&VelocityControl::OnUpdate, this));
     }
 
     // Called by the world update start event
     public: void OnUpdate()
     {
       // Apply a small linear velocity to the model.
-      this->model->SetLinearVel(ignition::math::Vector3d(.3, 0, 0));
+      this->model->SetLinearVel(ignition::math::Vector3d(5, 0, 0));
     }
 
     // Pointer to the model
@@ -34,5 +34,5 @@ namespace gazebo
   };
 
   // Register this plugin with the simulator
-  GZ_REGISTER_MODEL_PLUGIN(ModelPush)
+  GZ_REGISTER_MODEL_PLUGIN(VelocityControl)
 }
