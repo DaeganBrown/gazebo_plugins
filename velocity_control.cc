@@ -38,7 +38,7 @@ namespace gazebo
 
     // Pointer to the update event connection
     private: event::ConnectionPtr updateConnection;
-    private: physics::LinkPotr link;
+    private: physics::LinkPtr link;
   };
 
   // Register this plugin with the simulator
