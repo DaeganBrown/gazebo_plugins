@@ -22,8 +22,12 @@ namespace gazebo
     // Called by the world update start event
     public: void OnUpdate()
     {
-      // Apply a small linear velocity to the model.
-      this->model->SetLinearVel(ignition::math::Vector3d(51, 0, 0));
+      // local velocity
+      ignition::math::Vector3d = local(51, 0, 0);
+      //find global transform
+      ignition::math::Vector3d worldVel = orientation.RotateVector(localVel);
+
+      this->model->SetLinearVel(worldVel);
     }
 
     // Pointer to the model
