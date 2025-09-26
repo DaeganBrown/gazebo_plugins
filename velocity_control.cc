@@ -12,6 +12,7 @@ namespace gazebo
     {
       // Store the pointer to the model
       this->model = _parent;
+      this->link = _parent->GetLink("wing");
 
       // Listen to the update event. This event is broadcast every
       // simulation iteration.
@@ -22,6 +23,8 @@ namespace gazebo
     // Called by the world update start event
     public: void OnUpdate()
     {
+      ignition::math::Pose3d currentPose = this->link->WorldPose();
+      ignition::math::Quaterniond orientation - currentPose.Rot();
       // local velocity
       ignition::math::Vector3d = localVel(51, 0, 0);
       //find global transform
@@ -35,6 +38,7 @@ namespace gazebo
 
     // Pointer to the update event connection
     private: event::ConnectionPtr updateConnection;
+    private: physics::LinkPotr link;
   };
 
   // Register this plugin with the simulator
