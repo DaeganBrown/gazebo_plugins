@@ -11,7 +11,7 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 add_library(velocity_control SHARED velocity_control.cc)
 target_link_libraries(velocity_control ${GAZEBO_LIBRARIES})
 
-add_library(factory SHARED target_factory.cc)
-target_link_libraries(factory
+add_library(target_factory SHARED target_factory.cc)
+target_link_libraries(target_factory
   ${GAZEBO_LIBRARIES}
 )

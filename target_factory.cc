@@ -5,7 +5,7 @@
 
 namespace gazebo
 {
-class Factory : public WorldPlugin
+class TargetFactory : public WorldPlugin
 {
   public: void Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
   {
@@ -16,5 +16,5 @@ class Factory : public WorldPlugin
 };
 
 // Register this plugin with the simulator
-GZ_REGISTER_WORLD_PLUGIN(Factory)
+GZ_REGISTER_WORLD_PLUGIN(TargetFactory)
 }
