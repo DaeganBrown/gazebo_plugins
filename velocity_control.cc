@@ -14,6 +14,14 @@ namespace gazebo
       this->model = _parent;
       this->link = _parent->GetLink("wing");
 
+      ignition::math::Pose3d currentPose = this->link->WorldPose();
+      ignition::math::Quaterniond orientation = currentPose.Rot();
+      // local velocity
+      ignition::math::Vector3d localVel={0, -51, 0};
+      //find global transform
+      ignition::math::Vector3d worldVel = orientation.RotateVector(localVel);
+  
+      this->model->SetLinearVel(worldVel);
       // Listen to the update event. This event is broadcast every
       // simulation iteration.
       this->updateConnection = event::Events::ConnectWorldUpdateBegin(
@@ -23,14 +31,6 @@ namespace gazebo
     // Called by the world update start event
     public: void OnUpdate()
     {
-      ignition::math::Pose3d currentPose = this->link->WorldPose();
-      ignition::math::Quaterniond orientation = currentPose.Rot();
-      // local velocity
-      ignition::math::Vector3d localVel={0, -51, 0};
-      //find global transform
-      ignition::math::Vector3d worldVel = orientation.RotateVector(localVel);
-
-      this->model->SetLinearVel(worldVel);
     }
 
     // Pointer to the model
