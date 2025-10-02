@@ -12,7 +12,7 @@ namespace gazebo
     {
       // Store the pointer to the model
       this->model = _parent;
-      this->link = _parent->GetLink("base_link");
+      this->link = _parent->GetLink("body");
 
       ignition::math::Pose3d currentPose = this->link->WorldPose();
       ignition::math::Quaterniond orientation = currentPose.Rot();
